@@ -15,7 +15,7 @@
 	<description>Jxbrowser backlog board</description>
 
 	<properties>
-		<java.version>11</java.version>
+		<java.version>1.8</java.version>
 		<firebase.version>6.9.0</firebase.version>
 	</properties>
 
