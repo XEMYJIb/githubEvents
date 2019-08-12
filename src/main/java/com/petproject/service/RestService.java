@@ -35,6 +35,7 @@ public class RestService {
         this.restOperations = restOperations;
         final HttpHeaders defaultHeaders = new HttpHeaders();
         defaultHeaders.setAccept(List.of(MediaType.APPLICATION_JSON));
+        LOGGER.info("!!!!!!!!!!!!!!!!! {}", propertiesProvider.getGithubToken());
         defaultHeaders.set("Authorization", "token " + propertiesProvider.getGithubToken());
         this.gitHubDefaultHeaders = defaultHeaders;
     }
