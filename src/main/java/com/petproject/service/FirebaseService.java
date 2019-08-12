@@ -14,8 +14,11 @@ import org.springframework.stereotype.Service;
 
 import javax.annotation.PostConstruct;
 import javax.inject.Inject;
+import java.io.ByteArrayInputStream;
 import java.io.FileInputStream;
 import java.io.IOException;
+import java.io.InputStream;
+import java.nio.charset.StandardCharsets;
 import java.util.Map;
 
 /**
@@ -39,7 +42,8 @@ public class FirebaseService {
     @PostConstruct
     private void init() {
         try {
-            final FileInputStream serviceAccount = new FileInputStream(propertiesProvider.getFirebasePrivateKeyPath());
+            //final FileInputStream serviceAccount = new FileInputStream(propertiesProvider.getFirebasePrivateKeyPath());
+            InputStream serviceAccount = new ByteArrayInputStream(propertiesProvider.getFirebasePrivateKey().getBytes(StandardCharsets.UTF_8));
 
             final FirebaseOptions options = new FirebaseOptions.Builder()
                 .setCredentials(GoogleCredentials.fromStream(serviceAccount))

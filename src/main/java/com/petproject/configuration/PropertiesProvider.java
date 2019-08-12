@@ -26,6 +26,9 @@ public class PropertiesProvider {
     @Value("${firebase.private.key.path}")
     private String firebasePrivateKeyPath;
 
+    @Value("${firebase.private.key}")
+    private String firebasePrivateKey;
+
     @Value("${firebase.database.url}")
     private String firebaseDatabaseUrl;
 
