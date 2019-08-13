@@ -1,7 +1,6 @@
 package com.petproject;
 
 import com.petproject.model.github.Hook;
-import com.petproject.service.FirebaseService;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
@@ -16,7 +15,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.test.context.junit4.SpringRunner;
 import org.springframework.web.client.RestOperations;
 
-import java.util.List;
+import java.util.Collections;
 
 import static org.mockito.Mockito.*;
 
@@ -38,7 +37,7 @@ public class EventsApplicationTests {
             hook.setName("web");
             hook.setActive(true);
             hook.setConfig(config);
-            hook.setEvents(List.of("issue_comment"));
+            hook.setEvents(Collections.singletonList("issue_comment"));
             final Hook[] entry = {hook};
             final ResponseEntity entity = mock(ResponseEntity.class);
             doReturn(entry)

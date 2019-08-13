@@ -14,7 +14,7 @@ import org.springframework.web.client.RestClientResponseException;
 import org.springframework.web.client.RestOperations;
 
 import javax.inject.Inject;
-import java.util.List;
+import java.util.Collections;
 import java.util.Optional;
 
 /**
@@ -34,8 +34,7 @@ public class RestService {
                        PropertiesProvider propertiesProvider) {
         this.restOperations = restOperations;
         final HttpHeaders defaultHeaders = new HttpHeaders();
-        defaultHeaders.setAccept(List.of(MediaType.APPLICATION_JSON));
-        LOGGER.info("!!!!!!!!!!!!!!!!! {}", propertiesProvider.getGithubToken());
+        defaultHeaders.setAccept(Collections.singletonList(MediaType.APPLICATION_JSON));
         defaultHeaders.set("Authorization", "token " + propertiesProvider.getGithubToken());
         this.gitHubDefaultHeaders = defaultHeaders;
     }
